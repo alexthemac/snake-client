@@ -9,12 +9,21 @@ const connect = function () {
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
-  //console.logs data recieved from server ("data" is an event, there are multiple events eg "close", "connect", "data" etc...)
+  // console.logs locally (client side) data received from server ("data" is an event, there are multiple events eg "close", "connect", "data" etc...)
   conn.on("data", (data) => {
     console.log(data)
-  })
+  });
+  // console.logs locally (client side) "Succesfully connected to server! :)" when "connect" event occurs (ie when we connect to server succesfully)
+  conn.on("connect", () => {
+    console.log("Succesfully connected to server! :)")
+  });
+  // sends 'Name: ALX' (to server) when "connect" event occurs (ie when we connect to server succesfully) 
+  conn.on('connect', () => {
+    conn.write('Name: ALX');
+  });
+
   return conn;
 };
 
+//Exporting using ES6 Shorthand syntax
 module.exports =  {connect};
-//module.exports =  connect;
