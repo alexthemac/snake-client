@@ -21,7 +21,12 @@ const connect = function () {
   conn.on('connect', () => {
     conn.write('Name: ALX');
   });
-
+  conn.on('connect', () => {
+    //conn.write('Move: up'); //=> moves up immediately after connecting
+    // setInterval(() => conn.write('Move: up'), 50) //=> moves up every 50 mS. 
+    // setTimeout(() => conn.write('Move: left'), 1000); //=> moves left after 1 second
+  });
+ 
   return conn;
 };
 
