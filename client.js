@@ -31,4 +31,4 @@ const connect = function () {
 };
 
 //Exporting using ES6 Shorthand syntax
-module.exports =  {connect};
+module.exports = {connect};
