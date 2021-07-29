@@ -13,41 +13,32 @@ const setupInput = function (conn) {
 
 const handleUserInput = function (key) {
   if(key === '\u0003') {
-    process.exit();
+    process.exit(); //Exits connection if ctl + c is input
   }
+  //Keys below cause the snake to move in certain direction
   if(key === "w") {
-    // for(let i = 0; i < 20; i++) {
-    //   connection.write("Move: up")
-    // }
     connection.write("Move: up")
-    // setInterval(() => connection.write('Move: up'), 200)
-
-
   }
   if(key === "a") {
-    // for(let i = 0; i < 10; i++) {
-    //   connection.write("Move: left")
-    // }
     connection.write("Move: left")
-
-    // setInterval(() => connection.write('Move: left'), 200);
   }
   if(key === "s") {
-    // for(let i = 0; i < 10; i++) {
-    //   connection.write("Move: down")
-    // }
     connection.write("Move: down")
-    //console.log("Move: down")
-    // setInterval(() => connection.write('Move: down'), 200);
   }
   if(key === "d") {
-    // for(let i = 0; i < 10; i++) {
-    //   connection.write("Move: right")
-    // }
     connection.write("Move: right")
-    //console.log("Move: right")
-    // setInterval(() => connection.write('Move: right'), 200);
   }
+  //Keys below allow the snake to say stuff
+  if(key === "q") {
+    connection.write("Say: MOOOOOO")
+  }
+  if(key === "r") {
+    connection.write("Say: BUCKBUCKBUCK")
+  }
+  if(key === "e") {
+    connection.write("Say: riiiiiiiii")
+  }
+
 };
 
 module.exports = {setupInput};
