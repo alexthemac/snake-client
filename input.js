@@ -12,8 +12,9 @@ const setupInput = function (conn) {
 };
 
 const handleUserInput = function (key) {
+  //Exits connection if ctl + c is input
   if(key === '\u0003') {
-    process.exit(); //Exits connection if ctl + c is input
+    process.exit(); 
   }
   //Keys below cause the snake to move in certain direction
   if(key === "w") {
@@ -38,7 +39,6 @@ const handleUserInput = function (key) {
   if(key === "e") {
     connection.write("Say: riiiiiiiii")
   }
-
 };
 
 module.exports = {setupInput};
